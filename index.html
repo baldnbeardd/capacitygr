@@ -188,6 +188,17 @@ body {
 .cap-headline .cap-word:nth-child(2) { animation-delay: 0.65s; }
 .cap-headline .cap-word:nth-child(3) { animation-delay: 0.8s; }
 
+.cap-letter {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+.cap-letter:hover {
+  transform: translateY(-8px);
+  color: #c81e14;
+}
+
 @keyframes capSlideUp {
   to { opacity: 1; transform: translateY(0) skewX(0deg); }
 }
@@ -443,18 +454,17 @@ body {
 .cap-signup .cap-name-row {
   display: flex;
   justify-content: center;
-  gap: 0;
+  gap: 6px;
   max-width: 500px;
   margin: 0 auto 0.5rem;
 }
 
 .cap-signup .cap-name-row input {
-  border-right: none;
   flex: 1;
 }
 
 .cap-signup .cap-name-row input:last-child {
-  border-right: 1px solid rgba(255,255,255,0.08);
+  border-left: 1px solid rgba(255,255,255,0.08);
 }
 
 .cap-signup .cap-name-row input:last-child:focus {
@@ -609,11 +619,11 @@ body {
     <img class="cap-logo" src="https://cdn.convertri.com/408e1be2-f4de-11e9-99fe-0697e5ca793e%2F83ca4377521652570541222944d2d874b61f1365%2FCAPACITYGR%20no%20background.png" alt="Capacity GR">
   </div>
   <div class="cap-headline" data-text="SOMETHING NEW AWAITS">
-    <span class="cap-word">Something&nbsp;</span>
-    <span class="cap-word">New&nbsp;</span>
-    <span class="cap-word">Awaits</span>
+    <span class="cap-word"><span class="cap-letter">S</span><span class="cap-letter">o</span><span class="cap-letter">m</span><span class="cap-letter">e</span><span class="cap-letter">t</span><span class="cap-letter">h</span><span class="cap-letter">i</span><span class="cap-letter">n</span><span class="cap-letter">g</span>&nbsp;</span>
+    <span class="cap-word"><span class="cap-letter">N</span><span class="cap-letter">e</span><span class="cap-letter">w</span>&nbsp;</span>
+    <span class="cap-word"><span class="cap-letter">A</span><span class="cap-letter">w</span><span class="cap-letter">a</span><span class="cap-letter">i</span><span class="cap-letter">t</span><span class="cap-letter">s</span></span>
   </div>
-  <p class="cap-subline">exclusive &mdash; coming soon</p>
+  <p class="cap-subline">// &nbsp;exclusive&nbsp; //</p>
   <div class="cap-line"></div>
 </main>
 
