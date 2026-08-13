@@ -289,9 +289,10 @@ body {
 }
 .cap-drift:nth-child(2) {
   top: 18%;
-  left: -20%;
+  right: -20%;
+  left: auto;
+  animation: capDriftReverse 32s linear infinite, capTextFlicker 3.4s steps(1) infinite;
   animation-delay: 5s, 1.3s;
-  animation-duration: 32s, 3.4s;
 }
 .cap-drift:nth-child(3) {
   top: 70%;
@@ -301,9 +302,10 @@ body {
 }
 .cap-drift:nth-child(4) {
   top: 42%;
-  left: -10%;
+  right: -10%;
+  left: auto;
+  animation: capDriftReverse 22s linear infinite, capTextFlicker 2.3s steps(1) infinite;
   animation-delay: 14s, 2.1s;
-  animation-duration: 22s, 2.3s;
 }
 .cap-drift:nth-child(5) {
   top: 92%;
@@ -334,6 +336,14 @@ body {
   50% { opacity: 0.3; }
   95% { opacity: 0; }
   100% { transform: translateX(130vw); opacity: 0; }
+}
+
+@keyframes capDriftReverse {
+  0% { transform: translateX(0); opacity: 0; }
+  5% { opacity: 0.3; }
+  50% { opacity: 0.3; }
+  95% { opacity: 0; }
+  100% { transform: translateX(-130vw); opacity: 0; }
 }
 
 /* Divider — red line */
