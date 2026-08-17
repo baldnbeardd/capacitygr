@@ -120,24 +120,27 @@ body {
 
 /* Logo */
 .cap-logo {
-  height: 260px;
+  height: 380px;
   width: auto;
+  max-width: 90vw;
   opacity: 0;
   margin-bottom: 2.5rem;
-  filter: grayscale(0.2) contrast(1.1);
+  filter: grayscale(0.2) contrast(1.1) drop-shadow(0 0 40px rgba(200,30,20,0.15));
   animation: capFlicker 0.15s ease forwards 0.3s, capFadeIn 0.8s ease forwards 0.3s;
   position: relative;
   z-index: 2;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
-  .cap-logo { height: 160px; }
+  .cap-logo { height: 280px; }
 }
 @media (max-width: 768px) {
-  .cap-logo { height: 120px; }
+  .cap-logo { height: 220px; }
 }
 @media (max-width: 480px) {
-  .cap-logo { height: 90px; }
+  .cap-logo { height: 160px; }
 }
 
 /* Logo glow wrap */
@@ -146,16 +149,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 0;
 }
 
 .cap-logo-wrap::before {
   content: '';
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,30,20,0.08) 0%, rgba(200,30,20,0.03) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(200,30,20,0.1) 0%, rgba(200,30,20,0.04) 40%, transparent 70%);
   z-index: 0;
   animation: capLogoGlow 5s ease-in-out infinite;
 }
@@ -271,6 +274,22 @@ body {
   100% { opacity: 1; }
 }
 
+@keyframes capScrollFlicker {
+  0% { filter: grayscale(0.2) contrast(1.1) drop-shadow(0 0 40px rgba(200,30,20,0.15)); }
+  10% { filter: grayscale(0) contrast(1.3) brightness(1.5) drop-shadow(0 0 60px rgba(200,30,20,0.6)) hue-rotate(-10deg); }
+  20% { filter: grayscale(0.2) contrast(1.1) brightness(0.6) drop-shadow(0 0 20px rgba(200,30,20,0.1)); }
+  30% { filter: grayscale(0) contrast(1.4) brightness(1.8) drop-shadow(0 0 80px rgba(255,48,37,0.7)) hue-rotate(-15deg); }
+  40% { filter: grayscale(0.2) contrast(1.1) drop-shadow(0 0 40px rgba(200,30,20,0.15)); }
+  50% { filter: grayscale(0) contrast(1.2) brightness(1.3) drop-shadow(0 0 50px rgba(200,30,20,0.5)); }
+  60% { filter: grayscale(0.2) contrast(1.1) brightness(0.8) drop-shadow(0 0 30px rgba(200,30,20,0.1)); }
+  100% { filter: grayscale(0.2) contrast(1.1) drop-shadow(0 0 40px rgba(200,30,20,0.15)); }
+}
+
+.cap-logo-wrap:hover .cap-logo {
+  transform: translateY(-10px);
+  filter: grayscale(0) contrast(1.2) brightness(1.2) drop-shadow(0 0 60px rgba(200,30,20,0.5));
+}
+
 /* Drifting text */
 .cap-drift-container {
   position: fixed;
@@ -293,36 +312,39 @@ body {
 }
 
 .cap-drift:nth-child(1) {
-  top: 5%;
+  top: 3%;
   left: -15%;
+  animation: capDrift 25s linear infinite, capTextFlicker 2.8s steps(1) infinite;
   animation-delay: 0s, 0.7s;
-  animation-duration: 25s, 2.8s;
 }
 .cap-drift:nth-child(2) {
-  top: 18%;
+  top: 10%;
   right: -20%;
   left: auto;
   animation: capDriftReverse 32s linear infinite, capTextFlicker 3.4s steps(1) infinite;
   animation-delay: 5s, 1.3s;
 }
 .cap-drift:nth-child(3) {
-  top: 70%;
+  top: 38%;
   left: -12%;
+  animation: capDrift 28s linear infinite, capTextFlicker 4.1s steps(1) infinite;
   animation-delay: 9s, 0.2s;
-  animation-duration: 28s, 4.1s;
 }
 .cap-drift:nth-child(4) {
-  top: 42%;
+  bottom: 6%;
+  top: auto;
   right: -10%;
   left: auto;
   animation: capDriftReverse 22s linear infinite, capTextFlicker 2.3s steps(1) infinite;
   animation-delay: 14s, 2.1s;
 }
 .cap-drift:nth-child(5) {
-  top: 92%;
-  left: -18%;
+  top: 43%;
+  left: auto;
+  right: -18%;
+  bottom: auto;
+  animation: capDriftReverse 30s linear infinite, capTextFlicker 3.7s steps(1) infinite;
   animation-delay: 3s, 0.9s;
-  animation-duration: 30s, 3.7s;
 }
 
 @keyframes capTextFlicker {
@@ -381,7 +403,6 @@ body {
   text-align: center;
   opacity: 0;
   animation: capFadeIn 1s ease forwards 2s;
-  border-top: 1px solid rgba(255,255,255,0.04);
 }
 
 .cap-signup .cap-signup-label {
