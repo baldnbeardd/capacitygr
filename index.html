@@ -482,24 +482,23 @@ body {
 
 @media (max-width: 600px) {
   .cap-signup .cap-name-row {
-    flex-direction: column;
-    gap: 0;
+    gap: 6px;
   }
   .cap-signup .cap-name-row input {
     border-right: 1px solid rgba(255,255,255,0.08) !important;
-    border-bottom: none;
-  }
-  .cap-signup .cap-name-row input:last-child {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
   .cap-signup .cap-name-row input:focus {
     border-color: #c81e14 !important;
   }
   .cap-signup .cap-form-row {
     flex-direction: column;
+    gap: 6px;
   }
   .cap-signup input[type="email"] {
     border-right: 1px solid rgba(255,255,255,0.08) !important;
+  }
+  .cap-signup input[type="submit"] {
+    width: 100%;
   }
   .cap-signup input[type="email"]:focus {
     border-color: #c81e14 !important;
